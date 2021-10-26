@@ -33,3 +33,5 @@ service auditd start
 service auditd stop
 
 service auditd restart
+
+sed -i -e '$a-a never,exclude -F dir=/var/log -k exclude_dir\n-w / -p wa -k monitor_filesystem_change\n-a always,exit -F arch=b64 -S rename,mkdir,rmdir,unlink,unlinkat,renameat -F auid>=500 -F auid!=-1 -F dir=/ -F key=change_in _file\n-w /bin/sudo -p rwxa -k sudo' /etc/audit/rules.d/audit.rules

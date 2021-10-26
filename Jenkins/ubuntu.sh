@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Update the software package of the instance using the below command:
-sudo apt update -y
-echo
-echo 'Successfully update the system'
-echo '**************************************************'
-
 # Import the key file:
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 echo
@@ -19,10 +13,16 @@ echo 'Successfully download the Jenkins pkg'
 echo '**************************************************'
 
 # Install java packages and remove the oldest version of java if any:
-sudo apt install openjdk-11-jre-headless
+sudo apt install openjdk-11-jre-headless -y
 
 echo
 echo 'Successfully install Java-1.8.0 and remove Java-1.7.0'
+echo '**************************************************'
+
+# Update the software package of the instance using the below command:
+sudo apt update -y
+echo
+echo 'Successfully update the system'
 echo '**************************************************'
 
 # Install Jenkins using the below command:

@@ -16,7 +16,7 @@ locals {
 }
 
 resource "aws_iam_instance_profile" "test_profile" {
-  name = "raghib_instance_profile"
+  name = "filesystem_instance_profile"
   role = aws_iam_role.awslogs_ec2_role.name
 }
 
